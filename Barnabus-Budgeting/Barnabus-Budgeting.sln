@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1169
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barnabus-Budgeting.Android", "Barnabus-Budgeting\Barnabus-Budgeting.Android\Barnabus-Budgeting.Android.csproj", "{7D041836-2129-40BD-8F99-E0288B9C9FA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barnabus-Budgeting", "Barnabus-Budgeting\Barnabus-Budgeting\Barnabus-Budgeting.csproj", "{EC221F5F-BF3A-4E3B-AB35-851F8F18BE2A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D041836-2129-40BD-8F99-E0288B9C9FA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D041836-2129-40BD-8F99-E0288B9C9FA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D041836-2129-40BD-8F99-E0288B9C9FA6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7D041836-2129-40BD-8F99-E0288B9C9FA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D041836-2129-40BD-8F99-E0288B9C9FA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D041836-2129-40BD-8F99-E0288B9C9FA6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EC221F5F-BF3A-4E3B-AB35-851F8F18BE2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC221F5F-BF3A-4E3B-AB35-851F8F18BE2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC221F5F-BF3A-4E3B-AB35-851F8F18BE2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC221F5F-BF3A-4E3B-AB35-851F8F18BE2A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1559401F-B74D-4C87-937C-3907A487EED5}
+	EndGlobalSection
+EndGlobal
