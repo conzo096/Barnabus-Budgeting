@@ -3,12 +3,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7D041836-2129-40BD-8F99-E0288B9C9FA6}</ProjectGuid>
+    <ProjectGuid>{D3F600ED-FA1A-46D9-A509-FB0AB1A36AEE}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{c9e5eea5-ca05-42a1-839b-61506e0a37df}</TemplateGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Barnabus_Budgeting.Droid</RootNamespace>
-    <AssemblyName>Barnabus-Budgeting.Android</AssemblyName>
+    <AssemblyName>Barnabus Budgeting.Android</AssemblyName>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
@@ -92,9 +92,9 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Barnabus_Budgeting\Barnabus_Budgeting.csproj">
-      <Project>{1E9A1B07-F334-478E-9CF4-9D9345011F81}</Project>
-      <Name>Barnabus_Budgeting</Name>
+    <ProjectReference Include="..\Barnabus Budgeting\Barnabus Budgeting.csproj">
+      <Project>{7acb6a46-6471-4682-88c5-378889577a49}</Project>
+      <Name>Barnabus Budgeting</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
