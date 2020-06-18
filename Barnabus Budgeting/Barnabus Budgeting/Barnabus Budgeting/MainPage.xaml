@@ -25,5 +25,10 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button x:Name="AddNewMoneyItem"
+                  Text="Click to add new item"
+                  Clicked="OnAddNewMoneyItemClick">
+        </Button>
+
     </StackLayout>
 </ContentPage>

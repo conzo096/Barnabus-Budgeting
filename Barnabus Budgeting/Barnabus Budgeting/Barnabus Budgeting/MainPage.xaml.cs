@@ -1,6 +1,7 @@
 ﻿using Barnabus_Budgeting.Backend;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,23 +11,23 @@ namespace Barnabus_Budgeting
 {
     public partial class MainPage : ContentPage
     {
+        ObservableCollection<MoneyItem> data = new ObservableCollection<MoneyItem>();
+
         public MainPage()
         {
             InitializeComponent();
+            weekView.ItemsSource = data;
+        }
 
-            // Define some data.
-            List<MoneyItem> data = new List<MoneyItem>
+        private void OnAddNewMoneyItemClick(object sender, EventArgs args)
+        {
+            MoneyItem item = new MoneyItem
             {
-                new MoneyItem("Monday","A"),
-                new MoneyItem("Tuesday","A"),
-                new MoneyItem("Wednesday","A"),
-                new MoneyItem("Thursday","A"),
-                new MoneyItem("Friday","A"),
-                new MoneyItem("Saturday","A"),
-                new MoneyItem("Sunday","A")
+                Amount = data.Count + 1,
+                Title = "AA"
             };
 
-            weekView.ItemsSource = data;
+            data.Add(item);
         }
     }
 }
