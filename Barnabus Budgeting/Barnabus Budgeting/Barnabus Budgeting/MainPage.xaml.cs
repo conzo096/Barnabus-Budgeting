@@ -19,7 +19,7 @@ namespace Barnabus_Budgeting
             weekView.ItemsSource = data;
         }
 
-        private void OnAddNewMoneyItemClick(object sender, EventArgs args)
+        private async void OnAddNewMoneyItemClick(object sender, EventArgs args)
         {
             MoneyItem item = new MoneyItem
             {
@@ -28,6 +28,8 @@ namespace Barnabus_Budgeting
             };
 
             data.Add(item);
+
+            await Navigation.PushAsync(new AddGoalPage());
         }
     }
 }
