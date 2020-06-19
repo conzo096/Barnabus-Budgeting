@@ -11,7 +11,7 @@ namespace Barnabus_Budgeting
 {
     public partial class MainPage : ContentPage
     {
-        ObservableCollection<MoneyItem> data = new ObservableCollection<MoneyItem>();
+        public ObservableCollection<MoneyItem> data = new ObservableCollection<MoneyItem>();
 
         public MainPage()
         {
@@ -21,15 +21,7 @@ namespace Barnabus_Budgeting
 
         private async void OnAddNewMoneyItemClick(object sender, EventArgs args)
         {
-            MoneyItem item = new MoneyItem
-            {
-                Amount = data.Count + 1,
-                Title = "AA"
-            };
-
-            data.Add(item);
-
-            await Navigation.PushAsync(new AddGoalPage());
+            await Navigation.PushAsync(new AddGoalPage(data));
         }
     }
 }

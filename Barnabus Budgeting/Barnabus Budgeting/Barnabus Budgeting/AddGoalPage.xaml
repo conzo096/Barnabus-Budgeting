@@ -6,12 +6,16 @@
 
     <StackLayout>
         <StackLayout>
-            <Entry Placeholder="Enter title"
-               VerticalOptions="CenterAndExpand" />
-            <Entry Placeholder="Enter description"
-                   VerticalOptions="CenterAndExpand" />
-            <Entry Placeholder="Enter amount"
-                   VerticalOptions="CenterAndExpand" />
+            <Entry x:Name="titleField" 
+                     Placeholder="Enter title"
+                     VerticalOptions="CenterAndExpand" />
+            <Entry x:Name="descriptionField" 
+                     Placeholder="Enter description"
+                     VerticalOptions="CenterAndExpand" />
+            <Entry x:Name="amountField" 
+                     Keyboard="Numeric"
+                     Placeholder="Enter amount"
+                     VerticalOptions="CenterAndExpand" />
         </StackLayout>
         <StackLayout>
             <Button Text="Add Goal"
