@@ -26,16 +26,15 @@ namespace Barnabus_Budgeting
             await Navigation.PushAsync(new AddGoalPage());
         }
 
-        void OnEditItem(object sender, EventArgs e)
+        private async void OnEditItem(object sender, EventArgs e)
         {
             var item = (MenuItem)sender;
-            DisplayAlert("Todo: bring up edit page with values", item.CommandParameter.ToString(), "OK");
+            await Navigation.PushAsync(new AddGoalPage((MoneyItem)item.CommandParameter));
         }
 
-        void OnDeleteItem(object sender, EventArgs e)
+        private void OnDeleteItem(object sender, EventArgs e)
         {
             var item = (MenuItem)sender;
-
             Data.Remove((MoneyItem)item.CommandParameter);
         }
     }
