@@ -11,20 +11,20 @@ namespace Barnabus_Budgeting
 {
     public partial class AddGoalPage : ContentPage
     {
-        ObservableCollection<MoneyItem> allItems;
-        public AddGoalPage(ObservableCollection<MoneyItem> data)
+        public AddGoalPage()
         {
-            allItems = data;
             InitializeComponent();
         }
 
         private void OnAddGoalClick(object sender, EventArgs e)
         {
-            MoneyItem item = new MoneyItem();
-            item.Title = titleField.Text;
-            item.Description = titleField.Text;
+            MoneyItem item = new MoneyItem
+            {
+                Title = titleField.Text,
+                Description = titleField.Text
+            };
 
-            allItems.Add(item);
+            MainPage.Data.Add(item);
 
             Navigation.PopAsync();
         }
