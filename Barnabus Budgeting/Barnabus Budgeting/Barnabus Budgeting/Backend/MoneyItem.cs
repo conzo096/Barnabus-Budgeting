@@ -1,8 +1,7 @@
 ﻿// Represents an object.
 
+using SQLite;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Barnabus_Budgeting.Backend
 {
@@ -18,6 +17,8 @@ namespace Barnabus_Budgeting.Backend
             Description = description;
         }
 
+        [PrimaryKey, AutoIncrement]
+        public int ID { set; get; }
         public string Title { set; get; }
         public string Description { set; get; }
         public DateTime Start { set; get; }

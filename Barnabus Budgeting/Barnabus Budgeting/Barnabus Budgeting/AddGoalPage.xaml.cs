@@ -1,10 +1,5 @@
 ﻿using Barnabus_Budgeting.Backend;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Barnabus_Budgeting
@@ -28,7 +23,7 @@ namespace Barnabus_Budgeting
 
         }
 
-        private void OnAddGoalClick(object sender, EventArgs e)
+        private async void OnAddGoalClick(object sender, EventArgs e)
         {
             float.TryParse(amountField.Text, out float conversion);
             MoneyItem item = new MoneyItem
@@ -39,9 +34,10 @@ namespace Barnabus_Budgeting
                     
             };
 
-            MainPage.Data.Add(item);
+            await App.Database.SaveItemAsync(item);
 
-            Navigation.PopAsync();
+            MainPage.Data.Add(item);
+            await Navigation.PopAsync();
         }
     }
 }

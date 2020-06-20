@@ -11,11 +11,13 @@ namespace Barnabus_Budgeting
 {
     public partial class MainPage : ContentPage
     {
-        public static ObservableCollection<MoneyItem> Data { get; set; } 
+        public static ObservableCollection<MoneyItem> Data { get; set; }
 
         public MainPage()
         {
             Data = new ObservableCollection<MoneyItem>();
+            var items = App.Database.GetItems();
+            items.ForEach(x => Data.Add(x));
 
             InitializeComponent();
             weekView.ItemsSource = Data;
@@ -32,10 +34,13 @@ namespace Barnabus_Budgeting
             await Navigation.PushAsync(new AddGoalPage((MoneyItem)item.CommandParameter));
         }
 
-        private void OnDeleteItem(object sender, EventArgs e)
+        private async void OnDeleteItem(object sender, EventArgs e)
         {
             var item = (MenuItem)sender;
-            Data.Remove((MoneyItem)item.CommandParameter);
+            var itemToDelete = (MoneyItem)item.CommandParameter;
+
+            await App.Database.DeleteItemAsync(itemToDelete);
+            Data.Remove(itemToDelete);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Barnabus_Budgeting.Backend;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,6 +8,19 @@ namespace Barnabus_Budgeting
 {
     public partial class App : Application
     {
+        static BarnabusDatabase database;
+        public static BarnabusDatabase Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new BarnabusDatabase();
+                }
+                return database;
+            }
+        }
+
         public App()
         {
             InitializeComponent();
