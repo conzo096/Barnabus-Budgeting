@@ -9,11 +9,11 @@ using Xamarin.Forms;
 
 namespace Barnabus_Budgeting
 {
-    public partial class MainPage : ContentPage
+    public partial class SummaryPage : ContentPage
     {
         public static ObservableCollection<MoneyItem> Data { get; set; }
 
-        public MainPage()
+        public SummaryPage()
         {
             Data = new ObservableCollection<MoneyItem>();
             var items = App.Database.GetItems();

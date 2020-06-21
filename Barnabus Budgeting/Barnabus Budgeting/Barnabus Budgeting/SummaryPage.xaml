@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Barnabus_Budgeting.MainPage"
+             x:Class="Barnabus_Budgeting.SummaryPage"
              xmlns:local="clr-namespace:Barnabus_Budgeting;assembly=Barnabus_Budgeting"
              Title="Summary">
 
@@ -9,7 +9,7 @@
         <ListView x:Name="weekView"
                     RowHeight="50"
                     SelectionMode="Single"
-                    ItemsSource="{x:Static local:MainPage.Data}">
+                    ItemsSource="{x:Static local:SummaryPage.Data}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
