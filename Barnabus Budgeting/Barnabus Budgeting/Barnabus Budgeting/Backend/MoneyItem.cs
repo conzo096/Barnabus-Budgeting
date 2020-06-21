@@ -21,8 +21,6 @@ namespace Barnabus_Budgeting.Backend
         public int ID { set; get; }
         public string Title { set; get; }
         public string Description { set; get; }
-        public DateTime Start { set; get; }
-        public DateTime End { set; get; }
         public float Amount { set; get; }      
     }
 }
