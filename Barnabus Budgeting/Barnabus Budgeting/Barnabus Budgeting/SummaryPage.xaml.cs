@@ -36,7 +36,8 @@ namespace Barnabus_Budgeting
         private async void OnEditItem(object sender, EventArgs e)
         {
             var item = (MenuItem)sender;
-            await Navigation.PushAsync(new AddGoalPage((MoneyItem)item.CommandParameter));
+            var userGoal = (MoneyItem)item.CommandParameter;
+            await Navigation.PushAsync(new AddGoalPage(userGoal);
         }
 
         private async void OnDeleteItem(object sender, EventArgs e)
