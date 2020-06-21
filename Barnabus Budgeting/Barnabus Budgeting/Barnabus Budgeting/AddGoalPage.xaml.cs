@@ -37,7 +37,7 @@ namespace Barnabus_Budgeting
 
             await App.Database.SaveItemAsync(item);
 
-            SummaryPage.Data.Add(item);
+            SummaryPage.UserGoalData.Add(item);
             await Navigation.PopAsync();
         }
     }

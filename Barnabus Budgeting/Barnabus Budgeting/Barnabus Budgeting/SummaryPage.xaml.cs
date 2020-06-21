@@ -11,16 +11,16 @@ namespace Barnabus_Budgeting
 {
     public partial class SummaryPage : ContentPage
     {
-        public static ObservableCollection<MoneyItem> Data { get; set; }
+        public static ObservableCollection<MoneyItem> UserGoalData { get; set; }
 
         public SummaryPage()
         {
-            Data = new ObservableCollection<MoneyItem>();
+            UserGoalData = new ObservableCollection<MoneyItem>();
             var items = App.Database.GetItems();
-            items.ForEach(x => Data.Add(x));
+            items.ForEach(x => UserGoalData.Add(x));
 
             InitializeComponent();
-            goalListView.ItemsSource = Data;
+            goalListView.ItemsSource = UserGoalData;
         }
 
         private async void OnAddNewGoalClick(object sender, EventArgs args)
@@ -45,7 +45,7 @@ namespace Barnabus_Budgeting
             var itemToDelete = (MoneyItem)item.CommandParameter;
 
             await App.Database.DeleteItemAsync(itemToDelete);
-            Data.Remove(itemToDelete);
+            UserGoalData.Remove(itemToDelete);
         }
     }
 }

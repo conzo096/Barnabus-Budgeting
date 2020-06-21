@@ -43,7 +43,7 @@
             <ListView x:Name="goalListView"
                         RowHeight="50"
                         SelectionMode="Single"
-                        ItemsSource="{x:Static local:SummaryPage.Data}">
+                        ItemsSource="{x:Static local:SummaryPage.UserGoalData}">
                 <ListView.Header>
                     <StackLayout Padding="10,5,0,5">
                         <Label Text="Goals" />
