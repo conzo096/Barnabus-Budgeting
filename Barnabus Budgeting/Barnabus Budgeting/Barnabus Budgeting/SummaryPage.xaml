@@ -5,42 +5,71 @@
              xmlns:local="clr-namespace:Barnabus_Budgeting;assembly=Barnabus_Budgeting"
              Title="Summary">
 
-    <StackLayout Margin="5,0,5,5">
-        <ListView x:Name="weekView"
-                    RowHeight="50"
-                    SelectionMode="Single"
-                    ItemsSource="{x:Static local:SummaryPage.Data}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <ViewCell.ContextActions>
-                            <MenuItem Clicked="OnEditItem"
-                                      CommandParameter="{Binding .}"
-                                      Text="Edit" />
-                            <MenuItem Clicked="OnDeleteItem"
-                                      CommandParameter="{Binding .}"
-                                      Text="Delete" IsDestructive="True" />
-                        </ViewCell.ContextActions>
-                        <StackLayout Padding="0, 5"
-                                     Orientation="Horizontal">
-                            <StackLayout VerticalOptions="Center"
-                                         Spacing="0">
-                                <Label Text="{Binding Title}" 
-                                       FontSize="Small"/>
-                                <Label Text="{Binding Description}" 
-                                       FontSize="Micro"/>
-                                <Label Text="{Binding Amount, StringFormat='£{0:N}'}"
-                                       FontSize="Micro"/>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackLayout Grid.Column="0">
+            <ListView x:Name="transactionListView"
+                        RowHeight="50"
+                        SelectionMode="Single">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="0, 5"
+                                         Orientation="Horizontal">
+                                <StackLayout VerticalOptions="Center"
+                                             Spacing="0">
+                                    <Label Text="TODO: ADD TRANSACTION" 
+                                           FontSize="Micro"/>
+                                </StackLayout>
                             </StackLayout>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <Button x:Name="AddNewMoneyItem"
-                  Text="Click to add new item"
-                  Clicked="OnAddNewMoneyItemClick">
-        </Button>
-
-    </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button x:Name="AddNewTransactionButton"
+                      Text="Add Transaction "
+                      Clicked="OnAddNewTransactionClick">
+            </Button>
+        </StackLayout>
+        <StackLayout Grid.Column="1">
+            <ListView x:Name="goalListView"
+                        RowHeight="50"
+                        SelectionMode="Single"
+                        ItemsSource="{x:Static local:SummaryPage.Data}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Clicked="OnEditItem"
+                                          CommandParameter="{Binding .}"
+                                          Text="Edit" />
+                                <MenuItem Clicked="OnDeleteItem"
+                                          CommandParameter="{Binding .}"
+                                          Text="Delete" IsDestructive="True" />
+                            </ViewCell.ContextActions>
+                            <StackLayout Padding="0, 5"
+                                         Orientation="Horizontal">
+                                <StackLayout VerticalOptions="Center"
+                                             Spacing="0">
+                                    <Label Text="{Binding Title}" 
+                                           FontSize="Small"/>
+                                    <Label Text="{Binding Description}" 
+                                           FontSize="Micro"/>
+                                    <Label Text="{Binding Amount, StringFormat='£{0:N}'}"
+                                           FontSize="Micro"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button x:Name="AddNewGoalButton"
+                      Text="Add Goal"
+                      Clicked="OnAddNewGoalClick">
+            </Button>
+        </StackLayout>
+    </Grid>
 </ContentPage>

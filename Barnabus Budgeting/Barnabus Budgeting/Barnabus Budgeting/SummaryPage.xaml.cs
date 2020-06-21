@@ -20,12 +20,17 @@ namespace Barnabus_Budgeting
             items.ForEach(x => Data.Add(x));
 
             InitializeComponent();
-            weekView.ItemsSource = Data;
+            goalListView.ItemsSource = Data;
         }
 
-        private async void OnAddNewMoneyItemClick(object sender, EventArgs args)
+        private async void OnAddNewGoalClick(object sender, EventArgs args)
         {
             await Navigation.PushAsync(new AddGoalPage());
+        }
+
+        private async void OnAddNewTransactionClick(object sender, EventArgs args)
+        {
+            await Navigation.PushAsync(new AddTransactionPage());
         }
 
         private async void OnEditItem(object sender, EventArgs e)
