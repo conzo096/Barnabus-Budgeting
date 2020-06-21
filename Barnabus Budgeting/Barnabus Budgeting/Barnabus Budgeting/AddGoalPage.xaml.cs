@@ -22,7 +22,6 @@ namespace Barnabus_Budgeting
             titleField.Text = GoalToEdit.Title;
             descriptionField.Text = GoalToEdit.Description;
             amountField.Text = GoalToEdit.Amount.ToString();
-
         }
 
         private async void OnAddGoalClick(object sender, EventArgs e)
@@ -48,11 +47,9 @@ namespace Barnabus_Budgeting
                 SummaryPage.UserGoalData.Add(item);
             }
 
-
             await Navigation.PopAsync();
         }
 
-        //TODO: Seperate AddGoalPage and UpdateGoalPage to avoid this logic?
         private UserGoal GoalToEdit { set; get; }  
     }
 }
