@@ -16,7 +16,8 @@ namespace Barnabus_Budgeting
             InitializeComponent();
 
             Title = "Edit item";
-            
+            AddButtonField.Text = "Edit Goal";
+
             titleField.Text = item.Title;
             descriptionField.Text = item.Description;
             amountField.Text = item.Amount.ToString();

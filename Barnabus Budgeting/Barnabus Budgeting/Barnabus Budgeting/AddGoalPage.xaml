@@ -18,10 +18,11 @@
                      VerticalOptions="CenterAndExpand" />
         </StackLayout>
         <StackLayout>
-            <Button Text="Add Goal"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="Center"
-                Clicked="OnAddGoalClick" />
+            <Button x:Name="AddButtonField" 
+                      Text="Add Goal"
+                      VerticalOptions="CenterAndExpand"
+                      HorizontalOptions="Center"
+                      Clicked="OnAddGoalClick" />
         </StackLayout>
     </StackLayout>
     
