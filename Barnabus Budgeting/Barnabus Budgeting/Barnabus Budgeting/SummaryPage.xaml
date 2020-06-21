@@ -14,15 +14,20 @@
             <ListView x:Name="transactionListView"
                         RowHeight="50"
                         SelectionMode="Single">
+                <ListView.Header>
+                    <StackLayout Padding="10,5,0,5">
+                        <Label Text="Transactions" />
+                    </StackLayout>
+                </ListView.Header>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="0, 5"
-                                         Orientation="Horizontal">
+                                        Orientation="Horizontal">
                                 <StackLayout VerticalOptions="Center"
-                                             Spacing="0">
+                                            Spacing="0">
                                     <Label Text="TODO: ADD TRANSACTION" 
-                                           FontSize="Micro"/>
+                                        FontSize="Micro"/>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
@@ -39,6 +44,11 @@
                         RowHeight="50"
                         SelectionMode="Single"
                         ItemsSource="{x:Static local:SummaryPage.Data}">
+                <ListView.Header>
+                    <StackLayout Padding="10,5,0,5">
+                        <Label Text="Goals" />
+                    </StackLayout>
+                </ListView.Header>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
