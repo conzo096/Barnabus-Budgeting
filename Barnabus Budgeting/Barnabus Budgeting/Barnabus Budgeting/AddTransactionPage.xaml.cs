@@ -8,7 +8,10 @@ namespace Barnabus_Budgeting
     {
         public AddTransactionPage()
         {
+            var enums = Enum.GetValues(typeof(Transaction.TransactionType));
+
             InitializeComponent();
+            transactionPickerField.ItemsSource = enums;
         }
 
         public AddTransactionPage(MoneyItem item)

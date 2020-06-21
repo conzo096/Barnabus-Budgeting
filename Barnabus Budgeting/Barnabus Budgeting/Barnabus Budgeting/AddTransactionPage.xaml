@@ -6,6 +6,11 @@
 
     <StackLayout>
         <StackLayout>
+
+            <Picker x:Name="transactionPickerField" 
+                      Title="Transaction type">
+            </Picker>
+            
             <Entry x:Name="descriptionField" 
                      Placeholder="Enter description"
                      VerticalOptions="CenterAndExpand" />
