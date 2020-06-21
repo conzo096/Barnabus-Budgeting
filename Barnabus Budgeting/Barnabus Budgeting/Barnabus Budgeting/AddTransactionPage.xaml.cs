@@ -14,7 +14,7 @@ namespace Barnabus_Budgeting
             transactionPickerField.ItemsSource = enums;
         }
 
-        public AddTransactionPage(MoneyItem item)
+        public AddTransactionPage(UserGoal item)
         {
         }
     }

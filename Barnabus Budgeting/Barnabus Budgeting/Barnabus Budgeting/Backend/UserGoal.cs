@@ -5,13 +5,13 @@ using System;
 
 namespace Barnabus_Budgeting.Backend
 {
-    public class MoneyItem
+    public class UserGoal
     {
-        public MoneyItem()
+        public UserGoal()
         {
         }
 
-        public MoneyItem(string title, string description)
+        public UserGoal(string title, string description)
         {
             Title = title;
             Description = description;

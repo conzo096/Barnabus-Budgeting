@@ -11,7 +11,7 @@ namespace Barnabus_Budgeting
             InitializeComponent();
         }
 
-        public AddGoalPage(MoneyItem item)
+        public AddGoalPage(UserGoal item)
         {
             IsEditingGoal = true;
             InitializeComponent();
@@ -38,7 +38,7 @@ namespace Barnabus_Budgeting
             }
             else
             {
-                MoneyItem item = new MoneyItem
+                UserGoal item = new UserGoal
                 {
                     Title = titleField.Text,
                     Description = descriptionField.Text,
@@ -55,6 +55,6 @@ namespace Barnabus_Budgeting
 
         //TODO: Seperate AddGoalPage and UpdateGoalPage to avoid this logic?
         private bool IsEditingGoal { set; get; } = false;
-        private MoneyItem GoalToEdit { set; get; }  
+        private UserGoal GoalToEdit { set; get; }  
     }
 }

@@ -73,25 +73,25 @@ namespace Barnabus_Budgeting.Backend
         {
             if (!initialized)
             {
-                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(MoneyItem).Name))
+                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(UserGoal).Name))
                 {
-                    await Database.CreateTablesAsync(CreateFlags.None, typeof(MoneyItem)).ConfigureAwait(false);
+                    await Database.CreateTablesAsync(CreateFlags.None, typeof(UserGoal)).ConfigureAwait(false);
                     initialized = true;
                 }
             }
         }
 
-        public List<MoneyItem> GetItems()
+        public List<UserGoal> GetItems()
         {
-            return Database.Table<MoneyItem>().ToListAsync().Result;
+            return Database.Table<UserGoal>().ToListAsync().Result;
         }
 
-        public Task<MoneyItem> GetItemAsync(int id)
+        public Task<UserGoal> GetItemAsync(int id)
         {
-            return Database.Table<MoneyItem>().Where(i => i.ID == id).FirstOrDefaultAsync();
+            return Database.Table<UserGoal>().Where(i => i.ID == id).FirstOrDefaultAsync();
         }
 
-        public Task<int> SaveItemAsync(MoneyItem item)
+        public Task<int> SaveItemAsync(UserGoal item)
         {
             if (item.ID != 0)
             {
@@ -103,7 +103,7 @@ namespace Barnabus_Budgeting.Backend
             }
         }
 
-        public Task<int> DeleteItemAsync(MoneyItem item)
+        public Task<int> DeleteItemAsync(UserGoal item)
         {
             return Database.DeleteAsync(item);
         }
