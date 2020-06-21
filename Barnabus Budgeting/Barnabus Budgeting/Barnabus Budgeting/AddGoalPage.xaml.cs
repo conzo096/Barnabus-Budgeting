@@ -13,7 +13,6 @@ namespace Barnabus_Budgeting
 
         public AddGoalPage(UserGoal item)
         {
-            IsEditingGoal = true;
             InitializeComponent();
 
             Title = "Edit item";
@@ -29,7 +28,7 @@ namespace Barnabus_Budgeting
         private async void OnAddGoalClick(object sender, EventArgs e)
         {
             float.TryParse(amountField.Text, out float conversion);
-            if (IsEditingGoal)
+            if (GoalToEdit != null)
             {
                 GoalToEdit.Title = titleField.Text;
                 GoalToEdit.Description = descriptionField.Text;
@@ -54,7 +53,6 @@ namespace Barnabus_Budgeting
         }
 
         //TODO: Seperate AddGoalPage and UpdateGoalPage to avoid this logic?
-        private bool IsEditingGoal { set; get; } = false;
         private UserGoal GoalToEdit { set; get; }  
     }
 }

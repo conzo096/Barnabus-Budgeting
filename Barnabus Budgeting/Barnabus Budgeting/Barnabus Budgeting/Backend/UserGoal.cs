@@ -1,11 +1,11 @@
 ﻿// Represents an object.
 
 using SQLite;
-using System;
+using System.ComponentModel;
 
 namespace Barnabus_Budgeting.Backend
 {
-    public class UserGoal
+    public class UserGoal : INotifyPropertyChanged
     {
         public UserGoal()
         {
@@ -19,8 +19,48 @@ namespace Barnabus_Budgeting.Backend
 
         [PrimaryKey, AutoIncrement]
         public int ID { set; get; }
-        public string Title { set; get; }
-        public string Description { set; get; }
-        public float Amount { set; get; }      
+
+        private string _title;
+        public string Title {
+            set
+            {
+                _title = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Title"));
+            }
+            get
+            {
+                return _title;
+            }
+
+        }
+        private string _description;
+        public string Description
+        {
+            set
+            {
+                _description = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Description"));
+            }
+            get
+            {
+                return _description;
+            }
+        }
+
+        private float _amount;
+        public float Amount
+        {
+            set
+            {
+                _amount = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Amount"));
+            }
+            get
+            {
+                return _amount;
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
     }
 }
