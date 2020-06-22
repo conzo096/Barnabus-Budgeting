@@ -18,6 +18,11 @@
                      Keyboard="Numeric"
                      Placeholder="Enter amount"
                      VerticalOptions="CenterAndExpand" />
+            <Button x:Name="AddTransactionButton" 
+                      Text="Add Transaction"
+                      VerticalOptions="CenterAndExpand"
+                      HorizontalOptions="Center"
+                      Clicked="OnAddTransactionClick" />
         </StackLayout>
     </StackLayout>
     

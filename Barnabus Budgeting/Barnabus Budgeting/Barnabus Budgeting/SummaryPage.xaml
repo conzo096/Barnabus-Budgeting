@@ -13,7 +13,8 @@
         <StackLayout Grid.Column="0">
             <ListView x:Name="transactionListView"
                         RowHeight="50"
-                        SelectionMode="Single">
+                        SelectionMode="Single"
+                        ItemsSource="{x:Static local:SummaryPage.UserTransactions}">
                 <ListView.Header>
                     <StackLayout Padding="10,5,0,5">
                         <Label Text="Transactions" />
@@ -23,11 +24,13 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="0, 5"
-                                        Orientation="Horizontal">
+                                         Orientation="Horizontal">
                                 <StackLayout VerticalOptions="Center"
                                             Spacing="0">
-                                    <Label Text="TODO: ADD TRANSACTION" 
-                                        FontSize="Micro"/>
+                                    <Label Text="{Binding Description}" 
+                                           FontSize="Micro"/>
+                                    <Label Text="{Binding Amount, StringFormat='£{0:N}'}"
+                                           FontSize="Micro"/>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

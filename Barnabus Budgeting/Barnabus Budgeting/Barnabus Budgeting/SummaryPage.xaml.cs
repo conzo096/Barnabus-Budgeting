@@ -11,11 +11,11 @@ namespace Barnabus_Budgeting
 {
     public partial class SummaryPage : ContentPage
     {
-        public static ObservableCollection<UserGoal> UserGoalData { get; set; }
-
         public SummaryPage()
         {
             UserGoalData = new ObservableCollection<UserGoal>();
+            UserTransactions = new ObservableCollection<Transaction>();
+
             var items = App.Database.GetItems();
             items.ForEach(x => UserGoalData.Add(x));
 
@@ -48,5 +48,9 @@ namespace Barnabus_Budgeting
             await App.Database.DeleteItemAsync(itemToDelete);
             UserGoalData.Remove(itemToDelete);
         }
+
+        public static ObservableCollection<UserGoal> UserGoalData { get; set; }
+        public static ObservableCollection<Transaction> UserTransactions { get; set; }
+
     }
 }
