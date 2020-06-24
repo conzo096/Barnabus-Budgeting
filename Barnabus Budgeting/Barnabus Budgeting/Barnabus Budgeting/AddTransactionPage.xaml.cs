@@ -19,7 +19,16 @@ namespace Barnabus_Budgeting
             var enums = Enum.GetValues(typeof(Transaction.TransactionType));
 
             InitializeComponent();
+
             transactionPickerField.ItemsSource = enums;
+            Title = "Edit item";
+            AddTransactionButton.Text = "Edit Transaction";
+
+            TransactionToEdit = item;
+
+            transactionPickerField.SelectedItem = TransactionToEdit.Type;
+            descriptionField.Text = TransactionToEdit.Description;
+            amountField.Text = TransactionToEdit.Amount.ToString();
         }
 
         private async void OnAddTransactionClick(object sender, EventArgs e)
@@ -33,16 +42,30 @@ namespace Barnabus_Budgeting
             }
 
             var userTransaction = (Transaction.TransactionType)transactionPickerField.SelectedItem;
-            Transaction transaction = new Transaction
-            {
-                Type = userTransaction,
-                Description = descriptionField.Text,
-                Amount = conversion
-            };
 
-            await App.Database.SaveItemAsync(transaction);
-            SummaryPage.UserTransactions.Add(transaction);
+            if (TransactionToEdit != null)
+            {
+                TransactionToEdit.Type = userTransaction;
+                TransactionToEdit.Description = descriptionField.Text;
+                TransactionToEdit.Amount = conversion;
+                await App.Database.SaveItemAsync(TransactionToEdit);
+            }
+            else
+            {
+                Transaction transaction = new Transaction
+                {
+                    Type = userTransaction,
+                    Description = descriptionField.Text,
+                    Amount = conversion
+                };
+
+                await App.Database.SaveItemAsync(transaction);
+                SummaryPage.UserTransactions.Add(transaction);
+            }
+
             await Navigation.PopAsync();
         }
+
+        private Transaction TransactionToEdit { set; get; }
     }
 }

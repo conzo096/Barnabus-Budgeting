@@ -1,6 +1,5 @@
 ﻿// Represents an object.
 
-using SQLite;
 using System.ComponentModel;
 
 namespace Barnabus_Budgeting.Backend
