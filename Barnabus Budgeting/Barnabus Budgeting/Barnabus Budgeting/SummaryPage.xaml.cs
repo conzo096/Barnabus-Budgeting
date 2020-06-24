@@ -33,20 +33,36 @@ namespace Barnabus_Budgeting
             await Navigation.PushAsync(new AddTransactionPage());
         }
 
-        private async void OnEditItem(object sender, EventArgs e)
+        private async void OnEditGoal(object sender, EventArgs e)
         {
             var item = (MenuItem)sender;
             var userGoal = (UserGoal)item.CommandParameter;
             await Navigation.PushAsync(new AddGoalPage(userGoal));
         }
 
-        private async void OnDeleteItem(object sender, EventArgs e)
+        private async void OnDeleteGoal(object sender, EventArgs e)
         {
             var item = (MenuItem)sender;
             var itemToDelete = (UserGoal)item.CommandParameter;
 
             await App.Database.DeleteItemAsync(itemToDelete);
             UserGoalData.Remove(itemToDelete);
+        }
+
+        private async void OnEditTransaction(object sender, EventArgs e)
+        {
+            var item = (MenuItem)sender;
+            var userGoal = (Transaction)item.CommandParameter;
+            await Navigation.PushAsync(new AddTransactionPage(userGoal));
+        }
+
+        private async void OnDeleteTransaction(object sender, EventArgs e)
+        {
+            var item = (MenuItem)sender;
+            var itemToDelete = (Transaction)item.CommandParameter;
+
+            await App.Database.DeleteItemAsync(itemToDelete);
+            UserTransactions.Remove(itemToDelete);
         }
 
         public static ObservableCollection<UserGoal> UserGoalData { get; set; }

@@ -16,6 +16,10 @@ namespace Barnabus_Budgeting
 
         public AddTransactionPage(Transaction item)
         {
+            var enums = Enum.GetValues(typeof(Transaction.TransactionType));
+
+            InitializeComponent();
+            transactionPickerField.ItemsSource = enums;
         }
 
         private async void OnAddTransactionClick(object sender, EventArgs e)

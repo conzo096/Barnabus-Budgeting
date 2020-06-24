@@ -23,6 +23,14 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Clicked="OnEditTransaction"
+                                          CommandParameter="{Binding .}"
+                                          Text="Edit" />
+                                <MenuItem Clicked="OnDeleteTransaction"
+                                          CommandParameter="{Binding .}"
+                                          Text="Delete" IsDestructive="True" />
+                            </ViewCell.ContextActions>
                             <StackLayout Padding="0, 5"
                                          Orientation="Horizontal">
                                 <StackLayout VerticalOptions="Center"
@@ -56,10 +64,10 @@
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.ContextActions>
-                                <MenuItem Clicked="OnEditItem"
+                                <MenuItem Clicked="OnEditGoal"
                                           CommandParameter="{Binding .}"
                                           Text="Edit" />
-                                <MenuItem Clicked="OnDeleteItem"
+                                <MenuItem Clicked="OnDeleteGoal"
                                           CommandParameter="{Binding .}"
                                           Text="Delete" IsDestructive="True" />
                             </ViewCell.ContextActions>
