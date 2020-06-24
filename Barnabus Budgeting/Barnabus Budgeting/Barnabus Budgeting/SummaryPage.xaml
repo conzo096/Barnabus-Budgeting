@@ -35,6 +35,8 @@
                                          Orientation="Horizontal">
                                 <StackLayout VerticalOptions="Center"
                                             Spacing="0">
+                                    <Label Text="{Binding Type}" 
+                                           FontSize="Micro"/>
                                     <Label Text="{Binding Description}" 
                                            FontSize="Micro"/>
                                     <Label Text="{Binding Amount, StringFormat='£{0:N}'}"
