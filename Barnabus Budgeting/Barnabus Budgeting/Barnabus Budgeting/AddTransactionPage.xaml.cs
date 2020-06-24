@@ -36,6 +36,7 @@ namespace Barnabus_Budgeting
                 Amount = conversion
             };
 
+            await App.Database.SaveItemAsync(transaction);
             SummaryPage.UserTransactions.Add(transaction);
             await Navigation.PopAsync();
         }
