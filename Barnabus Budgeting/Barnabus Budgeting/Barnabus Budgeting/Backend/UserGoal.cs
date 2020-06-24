@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace Barnabus_Budgeting.Backend
 {
-    public class UserGoal : INotifyPropertyChanged
+    public class UserGoal : DatabaseItem, INotifyPropertyChanged
     {
         public UserGoal()
         {
@@ -16,9 +16,6 @@ namespace Barnabus_Budgeting.Backend
             Title = title;
             Description = description;
         }
-
-        [PrimaryKey, AutoIncrement]
-        public int ID { set; get; }
 
         private string _title;
         public string Title {

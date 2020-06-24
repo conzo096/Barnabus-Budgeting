@@ -16,7 +16,7 @@ namespace Barnabus_Budgeting
             UserGoalData = new ObservableCollection<UserGoal>();
             UserTransactions = new ObservableCollection<Transaction>();
 
-            var items = App.Database.GetItems();
+            var items = App.Database.GetItems<UserGoal>();
             items.ForEach(x => UserGoalData.Add(x));
 
             InitializeComponent();

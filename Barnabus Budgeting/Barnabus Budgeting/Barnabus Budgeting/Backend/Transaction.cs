@@ -1,11 +1,6 @@
-﻿using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Barnabus_Budgeting.Backend
+﻿namespace Barnabus_Budgeting.Backend
 {
-    public class Transaction
+    public class Transaction : DatabaseItem
     {
         public enum TransactionType
         {
@@ -13,8 +8,6 @@ namespace Barnabus_Budgeting.Backend
             Expense
         }
 
-        [PrimaryKey, AutoIncrement]
-        public int ID { set; get; }
         public string Description { set; get; }
         public float Amount { set; get; }
         public TransactionType Type { set; get; }
