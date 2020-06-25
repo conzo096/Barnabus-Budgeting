@@ -8,7 +8,7 @@
         <ListView x:Name="listView" x:FieldModifier="public">
             <ListView.ItemsSource>
                 <x:Array Type="{x:Type local:MasterPageItem}">
-                    <local:MasterPageItem Title="Summary" IconSource="contacts.png" TargetType="{x:Type local:SummaryPage}" />
+                    <local:MasterPageItem Title="Summary" IconSource="" TargetType="{x:Type local:SummaryPage}" />
                 </x:Array>
             </ListView.ItemsSource>
             <ListView.ItemTemplate>
