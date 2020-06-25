@@ -25,7 +25,7 @@ namespace Barnabus_Budgeting
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new SummaryPage());
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()
