@@ -6,46 +6,41 @@ using Xamarin.Forms;
 
 namespace Barnabus_Budgeting
 {
-    public static class Extensions
-    {
-        public static T Next<T>(this T src) where T : struct
-        {
-            if (!typeof(T).IsEnum) throw new ArgumentException(String.Format("Argument {0} is not an Enum", typeof(T).FullName));
-
-            T[] Arr = (T[])Enum.GetValues(src.GetType());
-            int j = Array.IndexOf<T>(Arr, src) + 1;
-            return (Arr.Length == j) ? Arr[0] : Arr[j];
-        }
-    }
-
-    public enum SwipeOrder { GOAL = 0, TRANSACTIONS = 1};
+    using SwipeManager = SummaryPageSwipeManagement;
 
     public partial class SummaryPage : ContentPage
     {
         public SummaryPage()
         {
             InitializeComponent();
-            CurrentSwipe = SwipeOrder.GOAL;
 
             mainLayout.Children.Add(new UserGoalsView());
         }
 
         private void OnSwipeLeft(object sender, EventArgs e)
         {
-            mainLayout.Children.RemoveAt(mainLayout.Children.Count - 1);
+            SwipeManager.CurrentSwipe = SwipeManager.CurrentSwipe.Next();
+            ChangeView();
+        }
 
-            CurrentSwipe = CurrentSwipe.Next();
-            switch (CurrentSwipe)
+        private void OnSwipeRight(object sender, EventArgs e)
+        {
+            SwipeManager.CurrentSwipe = SwipeManager.CurrentSwipe.Previous();
+            ChangeView();
+        }
+
+        private void ChangeView()
+        {
+            mainLayout.Children.RemoveAt(mainLayout.Children.Count - 1);
+            switch (SwipeManager.CurrentSwipe)
             {
-                case SwipeOrder.GOAL:
+                case SwipeManager.SwipeOrder.GOAL:
                     mainLayout.Children.Add(new UserGoalsView());
                     break;
-                case SwipeOrder.TRANSACTIONS:
+                case SwipeManager.SwipeOrder.TRANSACTIONS:
                     mainLayout.Children.Add(new UserTransactionsView());
                     break;
             };
         }
-
-        public SwipeOrder CurrentSwipe { set; get; }
     }
 }

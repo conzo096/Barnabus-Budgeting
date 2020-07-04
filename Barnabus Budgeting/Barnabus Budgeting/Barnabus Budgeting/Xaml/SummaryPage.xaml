@@ -7,6 +7,7 @@
     <StackLayout x:Name="mainLayout">
         <StackLayout.GestureRecognizers>
             <SwipeGestureRecognizer Direction="Left" Swiped="OnSwipeLeft"/>
+            <SwipeGestureRecognizer Direction="Right" Swiped="OnSwipeRight"/>
         </StackLayout.GestureRecognizers>
     </StackLayout>
 </ContentPage>
