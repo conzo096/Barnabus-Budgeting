@@ -2,71 +2,50 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Barnabus_Budgeting
 {
+    public static class Extensions
+    {
+        public static T Next<T>(this T src) where T : struct
+        {
+            if (!typeof(T).IsEnum) throw new ArgumentException(String.Format("Argument {0} is not an Enum", typeof(T).FullName));
+
+            T[] Arr = (T[])Enum.GetValues(src.GetType());
+            int j = Array.IndexOf<T>(Arr, src) + 1;
+            return (Arr.Length == j) ? Arr[0] : Arr[j];
+        }
+    }
+
+    public enum SwipeOrder { GOAL = 0, TRANSACTIONS = 1};
+
     public partial class SummaryPage : ContentPage
     {
         public SummaryPage()
         {
-            UserGoalData = new ObservableCollection<UserGoal>();
-            UserTransactions = new ObservableCollection<Transaction>();
-
-            App.Database.GetItems<UserGoal>().ForEach(x => UserGoalData.Add(x));
-            App.Database.GetItems<Transaction>().ForEach(x => UserTransactions.Add(x));
-
             InitializeComponent();
-            goalListView.ItemsSource = UserGoalData;
+            CurrentSwipe = SwipeOrder.GOAL;
+
+            mainLayout.Children.Add(new UserGoalsView());
         }
 
-        private async void OnAddNewGoalClick(object sender, EventArgs args)
+        private void OnSwipeLeft(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AddGoalPage());
+            mainLayout.Children.RemoveAt(mainLayout.Children.Count - 1);
+
+            CurrentSwipe = CurrentSwipe.Next();
+            switch (CurrentSwipe)
+            {
+                case SwipeOrder.GOAL:
+                    mainLayout.Children.Add(new UserGoalsView());
+                    break;
+                case SwipeOrder.TRANSACTIONS:
+                    mainLayout.Children.Add(new UserTransactionsView());
+                    break;
+            };
         }
 
-        private async void OnAddNewTransactionClick(object sender, EventArgs args)
-        {
-            await Navigation.PushAsync(new AddTransactionPage());
-        }
-
-        private async void OnEditGoal(object sender, EventArgs e)
-        {
-            var item = (MenuItem)sender;
-            var userGoal = (UserGoal)item.CommandParameter;
-            await Navigation.PushAsync(new AddGoalPage(userGoal));
-        }
-
-        private async void OnDeleteGoal(object sender, EventArgs e)
-        {
-            var item = (MenuItem)sender;
-            var itemToDelete = (UserGoal)item.CommandParameter;
-
-            await App.Database.DeleteItemAsync(itemToDelete);
-            UserGoalData.Remove(itemToDelete);
-        }
-
-        private async void OnEditTransaction(object sender, EventArgs e)
-        {
-            var item = (MenuItem)sender;
-            var userGoal = (Transaction)item.CommandParameter;
-            await Navigation.PushAsync(new AddTransactionPage(userGoal));
-        }
-
-        private async void OnDeleteTransaction(object sender, EventArgs e)
-        {
-            var item = (MenuItem)sender;
-            var itemToDelete = (Transaction)item.CommandParameter;
-
-            await App.Database.DeleteItemAsync(itemToDelete);
-            UserTransactions.Remove(itemToDelete);
-        }
-
-        public static ObservableCollection<UserGoal> UserGoalData { get; set; }
-        public static ObservableCollection<Transaction> UserTransactions { get; set; }
-
+        public SwipeOrder CurrentSwipe { set; get; }
     }
 }

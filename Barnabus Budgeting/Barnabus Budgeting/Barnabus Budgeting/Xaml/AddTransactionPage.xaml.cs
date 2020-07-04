@@ -60,7 +60,7 @@ namespace Barnabus_Budgeting
                 };
 
                 await App.Database.SaveItemAsync(transaction);
-                SummaryPage.UserTransactions.Add(transaction);
+                UserTransactionsView.UserTransactions.Add(transaction);
             }
 
             await Navigation.PopAsync();

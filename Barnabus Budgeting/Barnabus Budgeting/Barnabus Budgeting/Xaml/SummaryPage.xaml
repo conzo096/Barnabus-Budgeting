@@ -2,97 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Barnabus_Budgeting.SummaryPage"
-             xmlns:local="clr-namespace:Barnabus_Budgeting;assembly=Barnabus_Budgeting"
              Title="Summary">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <StackLayout Grid.Column="0">
-            <ListView x:Name="transactionListView"
-                        RowHeight="50"
-                        SelectionMode="Single"
-                        ItemsSource="{x:Static local:SummaryPage.UserTransactions}">
-                <ListView.Header>
-                    <StackLayout Padding="10,5,0,5">
-                        <Label Text="Transactions" />
-                    </StackLayout>
-                </ListView.Header>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <ViewCell.ContextActions>
-                                <MenuItem Clicked="OnEditTransaction"
-                                          CommandParameter="{Binding .}"
-                                          Text="Edit" />
-                                <MenuItem Clicked="OnDeleteTransaction"
-                                          CommandParameter="{Binding .}"
-                                          Text="Delete" IsDestructive="True" />
-                            </ViewCell.ContextActions>
-                            <StackLayout Padding="0, 5"
-                                         Orientation="Horizontal">
-                                <StackLayout VerticalOptions="Center"
-                                            Spacing="0">
-                                    <Label Text="{Binding Type}" 
-                                           FontSize="Micro"/>
-                                    <Label Text="{Binding Description}" 
-                                           FontSize="Micro"/>
-                                    <Label Text="{Binding Amount, StringFormat='£{0:N}'}"
-                                           FontSize="Micro"/>
-                                </StackLayout>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <Button x:Name="AddNewTransactionButton"
-                      Text="Add Transaction "
-                      Clicked="OnAddNewTransactionClick">
-            </Button>
-        </StackLayout>
-        <StackLayout Grid.Column="1">
-            <ListView x:Name="goalListView"
-                        RowHeight="50"
-                        SelectionMode="Single"
-                        ItemsSource="{x:Static local:SummaryPage.UserGoalData}">
-                <ListView.Header>
-                    <StackLayout Padding="10,5,0,5">
-                        <Label Text="Goals" />
-                    </StackLayout>
-                </ListView.Header>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <ViewCell.ContextActions>
-                                <MenuItem Clicked="OnEditGoal"
-                                          CommandParameter="{Binding .}"
-                                          Text="Edit" />
-                                <MenuItem Clicked="OnDeleteGoal"
-                                          CommandParameter="{Binding .}"
-                                          Text="Delete" IsDestructive="True" />
-                            </ViewCell.ContextActions>
-                            <StackLayout Padding="0, 5"
-                                         Orientation="Horizontal">
-                                <StackLayout VerticalOptions="Center"
-                                             Spacing="0">
-                                    <Label Text="{Binding Title}" 
-                                           FontSize="Small"/>
-                                    <Label Text="{Binding Description}" 
-                                           FontSize="Micro"/>
-                                    <Label Text="{Binding Amount, StringFormat='£{0:N}'}"
-                                           FontSize="Micro"/>
-                                </StackLayout>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <Button x:Name="AddNewGoalButton"
-                      Text="Add Goal"
-                      Clicked="OnAddNewGoalClick">
-            </Button>
-        </StackLayout>
-    </Grid>
+    <StackLayout x:Name="mainLayout">
+        <StackLayout.GestureRecognizers>
+            <SwipeGestureRecognizer Direction="Left" Swiped="OnSwipeLeft"/>
+        </StackLayout.GestureRecognizers>
+    </StackLayout>
 </ContentPage>
