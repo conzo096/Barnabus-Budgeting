@@ -8,9 +8,7 @@ namespace Barnabus_Budgeting
 	public partial class UserGoalsView : ContentView
 	{
 		public UserGoalsView()
-		{
-            UserGoalData = new ObservableCollection<UserGoal>();
-            
+		{   
             App.Database.GetItems<UserGoal>().ForEach(x => UserGoalData.Add(x));
             InitializeComponent();
         }
@@ -46,6 +44,6 @@ namespace Barnabus_Budgeting
             await Navigation.PushAsync(new AddGoalPage());
         }
 
-        public static ObservableCollection<UserGoal> UserGoalData { get; set; }
+        public static ObservableCollection<UserGoal> UserGoalData { get; set; } = new ObservableCollection<UserGoal>();
     }
 }

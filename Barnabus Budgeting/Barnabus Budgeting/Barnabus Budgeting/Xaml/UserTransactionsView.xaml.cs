@@ -9,12 +9,9 @@ namespace Barnabus_Budgeting
 	{
 		public UserTransactionsView()
 		{
-            UserTransactions = new ObservableCollection<Transaction>();
-
             App.Database.GetItems<Transaction>().ForEach(x => UserTransactions.Add(x));
             InitializeComponent();
 		}
-
 
         private async void OnEditTransaction(object sender, EventArgs e)
         {
@@ -37,6 +34,6 @@ namespace Barnabus_Budgeting
             await Navigation.PushAsync(new AddTransactionPage());
         }
 
-        public static ObservableCollection<Transaction> UserTransactions { get; set; }
+        public static ObservableCollection<Transaction> UserTransactions { get; set; } = new ObservableCollection<Transaction>();
     }
 }
