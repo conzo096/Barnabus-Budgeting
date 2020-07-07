@@ -31,6 +31,16 @@ namespace Barnabus_Budgeting
             UserGoalData.Remove(itemToDelete);
         }
 
+        private async void OnSwipeLeft(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddGoalPage());
+        }
+
+        private async void OnSwipeRight(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddGoalPage());
+        }
+
         private async void OnAddNewGoalClick(object sender, EventArgs args)
         {
             await Navigation.PushAsync(new AddGoalPage());

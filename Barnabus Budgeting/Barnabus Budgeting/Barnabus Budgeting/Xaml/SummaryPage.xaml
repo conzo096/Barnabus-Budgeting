@@ -1,13 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Barnabus_Budgeting"
              x:Class="Barnabus_Budgeting.SummaryPage"
              Title="Summary">
 
-    <StackLayout x:Name="mainLayout">
-        <StackLayout.GestureRecognizers>
-            <SwipeGestureRecognizer Direction="Left" Swiped="OnSwipeLeft"/>
-            <SwipeGestureRecognizer Direction="Right" Swiped="OnSwipeRight"/>
-        </StackLayout.GestureRecognizers>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:SummaryCarouselDataTemplateSelector x:Key="templateSelector"></local:SummaryCarouselDataTemplateSelector>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Margin="20">
+        <CarouselView x:Name="summariesCarousel" ItemTemplate="{StaticResource templateSelector}"  ItemsSource="{x:Static local:SummaryPage.fields}">
+        </CarouselView>
     </StackLayout>
+    
 </ContentPage>

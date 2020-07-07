@@ -6,41 +6,18 @@ using Xamarin.Forms;
 
 namespace Barnabus_Budgeting
 {
-    using SwipeManager = SummaryPageSwipeManagement;
-
     public partial class SummaryPage : ContentPage
     {
         public SummaryPage()
         {
             InitializeComponent();
 
-            mainLayout.Children.Add(new UserGoalsView());
+            fields.Add(SummaryTypes.GOAL);
+            fields.Add(SummaryTypes.TRANSACTIONS);
         }
 
-        private void OnSwipeLeft(object sender, EventArgs e)
-        {
-            SwipeManager.CurrentSwipe = SwipeManager.CurrentSwipe.Next();
-            ChangeView();
-        }
+        public enum SummaryTypes { GOAL = 0, TRANSACTIONS = 1 };
 
-        private void OnSwipeRight(object sender, EventArgs e)
-        {
-            SwipeManager.CurrentSwipe = SwipeManager.CurrentSwipe.Previous();
-            ChangeView();
-        }
-
-        private void ChangeView()
-        {
-            mainLayout.Children.RemoveAt(mainLayout.Children.Count - 1);
-            switch (SwipeManager.CurrentSwipe)
-            {
-                case SwipeManager.SwipeOrder.GOAL:
-                    mainLayout.Children.Add(new UserGoalsView());
-                    break;
-                case SwipeManager.SwipeOrder.TRANSACTIONS:
-                    mainLayout.Children.Add(new UserTransactionsView());
-                    break;
-            };
-        }
+        public static List<SummaryTypes> fields = new List<SummaryTypes>();
     }
 }
