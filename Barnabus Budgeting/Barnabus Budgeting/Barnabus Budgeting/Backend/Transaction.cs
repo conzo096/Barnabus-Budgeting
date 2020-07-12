@@ -2,15 +2,9 @@
 
 namespace Barnabus_Budgeting.Backend
 {
-    public enum TransactionType
-    {
-        Income,
-        Expense
-    }
-
     public class ExpenseTransaction : Transaction
     {
-        public ExpenseTransaction() : base( TransactionType.Expense)
+        public ExpenseTransaction()
         {
         }
     }
@@ -19,11 +13,6 @@ namespace Barnabus_Budgeting.Backend
     {
         public Transaction()
         {
-        }
-
-        public Transaction(TransactionType type)
-        {
-            Type = type;
         }
 
         private string _description;
@@ -51,20 +40,6 @@ namespace Barnabus_Budgeting.Backend
             get
             {
                 return _amount;
-            }
-        }
-
-        private TransactionType _type;
-        public TransactionType Type
-        {
-            set
-            {
-                _type = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Type"));
-            }
-            get
-            {
-                return _type;
             }
         }
 
