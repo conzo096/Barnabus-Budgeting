@@ -23,19 +23,19 @@
     <Compile Update="Xaml\AddUserExpensePage.xaml.cs">
       <DependentUpon>AddUserExpensePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Xaml\MasterPage.xaml.cs">
+    <Compile Update="Xaml\MasterPage\MasterPage.xaml.cs">
       <DependentUpon>MasterPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Xaml\MasterPageItem.cs">
+    <Compile Update="Xaml\MasterPage\MasterPageItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Xaml\SummaryPage.xaml.cs">
+    <Compile Update="Xaml\SummaryPages\SummaryPage.xaml.cs">
       <DependentUpon>SummaryPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Xaml\UserIncomeView.xaml.cs">
+    <Compile Update="Xaml\SummaryPages\Views\UserIncomeView.xaml.cs">
       <DependentUpon>UserIncomeView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Xaml\UserExpensesView.xaml.cs">
+    <Compile Update="Xaml\SummaryPages\Views\UserExpensesView.xaml.cs">
       <DependentUpon>UserExpensesView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -44,16 +44,16 @@
     <EmbeddedResource Update="Xaml\AddGoalPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Xaml\MainPage.xaml">
+    <EmbeddedResource Update="Xaml\MasterPage\MainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Xaml\MasterPage.xaml">
+    <EmbeddedResource Update="Xaml\MasterPage\MasterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Xaml\UserGoalsView.xaml">
+    <EmbeddedResource Update="Xaml\SummaryPages\Views\UserGoalsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Xaml\UserExpensesView.xaml">
+    <EmbeddedResource Update="Xaml\SummaryPages\Views\UserExpensesView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
