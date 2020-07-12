@@ -36,14 +36,14 @@ namespace Barnabus_Budgeting
             }
             else
             {
-                ExpenseTransaction transaction = new ExpenseTransaction
+                IncomeTransaction transaction = new IncomeTransaction
                 {
                     Description = descriptionField.Text,
                     Amount = conversion
                 };
 
                 await App.Database.SaveItemAsync(transaction);
-                UserExpensesView.UserExpenses.Add(transaction);
+                UserIncomeView.UserIncome.Add(transaction);
             }
 
             await Navigation.PopAsync();

@@ -31,7 +31,7 @@ namespace Barnabus_Budgeting
 
         private async void OnAddNewTransactionClick(object sender, EventArgs args)
         {
-            await Navigation.PushAsync(new AddUserExpensePage());
+            await Navigation.PushAsync(new AddUserIncomePage());
         }
 
         public static ObservableCollection<IncomeTransaction> UserIncome { get; set; } = new ObservableCollection<IncomeTransaction>();
