@@ -1,19 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Barnabus_Budgeting"
-             x:Class="Barnabus_Budgeting.SummaryPage"
-             Title="Summary">
+<ContentPage
+    x:Class="Barnabus_Budgeting.SummaryPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Barnabus_Budgeting"
+    Title="Summary">
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <local:SummaryCarouselDataTemplateSelector x:Key="templateSelector"></local:SummaryCarouselDataTemplateSelector>
+            <local:SummaryCarouselDataTemplateSelector x:Key="templateSelector" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
     <StackLayout Margin="20">
-        <CarouselView x:Name="summariesCarousel" ItemTemplate="{StaticResource templateSelector}"  ItemsSource="{x:Static local:SummaryPage.fields}">
-        </CarouselView>
+        <CarouselView
+            x:Name="summariesCarousel"
+            IndicatorView="indicatorView"
+            ItemTemplate="{StaticResource templateSelector}"
+            ItemsSource="{x:Static local:SummaryPage.fields}" />
+        <IndicatorView
+            x:Name="indicatorView"
+            HorizontalOptions="Center"
+            IndicatorColor="LightGray"
+            SelectedIndicatorColor="DarkGray" />
     </StackLayout>
-    
+
 </ContentPage>

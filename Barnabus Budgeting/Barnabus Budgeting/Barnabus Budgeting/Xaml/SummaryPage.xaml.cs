@@ -10,10 +10,11 @@ namespace Barnabus_Budgeting
     {
         public SummaryPage()
         {
-            InitializeComponent();
 
             fields.Add(SummaryTypes.GOAL);
             fields.Add(SummaryTypes.TRANSACTIONS);
+
+            InitializeComponent();
         }
 
         public enum SummaryTypes { GOAL = 0, TRANSACTIONS = 1 };
