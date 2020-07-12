@@ -7,6 +7,8 @@ namespace Barnabus_Budgeting
 {
     public class SummaryCarouselDataTemplateSelector : DataTemplateSelector
     {
+        public enum SummaryType { GOAL = 0, TRANSACTIONS = 1 };
+
         public SummaryCarouselDataTemplateSelector()
         {
             UserGoalsTemplate = new DataTemplate(typeof(UserGoalsView));
@@ -15,12 +17,12 @@ namespace Barnabus_Budgeting
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
-            var summary = (SummaryPage.SummaryTypes) item;
+            var summary = (SummaryType) item;
             switch (summary)
             {
-                case SummaryPage.SummaryTypes.GOAL:
+                case SummaryType.GOAL:
                     return UserGoalsTemplate;
-                case SummaryPage.SummaryTypes.TRANSACTIONS:
+                case SummaryType.TRANSACTIONS:
                     return UserTransactionsTemplate;
             }
 

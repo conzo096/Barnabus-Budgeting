@@ -6,19 +6,19 @@ using Xamarin.Forms;
 
 namespace Barnabus_Budgeting
 {
+    using SummaryDataSelector = SummaryCarouselDataTemplateSelector;
+
     public partial class SummaryPage : ContentPage
     {
         public SummaryPage()
         {
 
-            fields.Add(SummaryTypes.GOAL);
-            fields.Add(SummaryTypes.TRANSACTIONS);
+            fields.Add(SummaryDataSelector.SummaryType.GOAL);
+            fields.Add(SummaryDataSelector.SummaryType.TRANSACTIONS);
 
             InitializeComponent();
         }
 
-        public enum SummaryTypes { GOAL = 0, TRANSACTIONS = 1 };
-
-        public static List<SummaryTypes> fields = new List<SummaryTypes>();
+        public static List<SummaryDataSelector.SummaryType> fields = new List<SummaryDataSelector.SummaryType>();
     }
 }
