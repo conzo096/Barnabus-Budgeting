@@ -2,12 +2,28 @@
 
 namespace Barnabus_Budgeting.Backend
 {
+    public enum TransactionType
+    {
+        Income,
+        Expense
+    }
+
+    public class ExpenseTransaction : Transaction
+    {
+        public ExpenseTransaction() : base( TransactionType.Expense)
+        {
+        }
+    }
+
     public class Transaction : DatabaseItem, INotifyPropertyChanged
     {
-        public enum TransactionType
+        public Transaction()
         {
-            Income,
-            Expense
+        }
+
+        public Transaction(TransactionType type)
+        {
+            Type = type;
         }
 
         private string _description;

@@ -10,7 +10,7 @@ namespace Barnabus_Budgeting
         public SummaryCarouselDataTemplateSelector()
         {
             UserGoalsTemplate = new DataTemplate(typeof(UserGoalsView));
-            UserTransactionsTemplate = new DataTemplate(typeof(UserTransactionsView));
+            UserTransactionsTemplate = new DataTemplate(typeof(UserExpensesView));
         }
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)

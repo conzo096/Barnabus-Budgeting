@@ -1,16 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Barnabus_Budgeting"
-             x:Class="Barnabus_Budgeting.MasterPage"
-             Title="Master">
+<ContentPage
+    x:Class="Barnabus_Budgeting.MasterPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Barnabus_Budgeting"
+    Title="Master">
     <StackLayout>
         <ListView x:Name="listView" x:FieldModifier="public">
             <ListView.ItemsSource>
                 <x:Array Type="{x:Type local:MasterPageItem}">
-                    <local:MasterPageItem Title="Summaries" IconSource="" TargetType="{x:Type local:SummaryPage}" />
-                    <local:MasterPageItem Title="Add a Goal" IconSource="" TargetType="{x:Type local:AddGoalPage}" />
-                    <local:MasterPageItem Title="Add a expendature" IconSource="" TargetType="{x:Type local:AddTransactionPage}" />
+                    <local:MasterPageItem
+                        Title="Summaries"
+                        IconSource=""
+                        TargetType="{x:Type local:SummaryPage}" />
+                    <local:MasterPageItem
+                        Title="Add a Goal"
+                        IconSource=""
+                        TargetType="{x:Type local:AddGoalPage}" />
+                    <local:MasterPageItem
+                        Title="Add a expense"
+                        IconSource=""
+                        TargetType="{x:Type local:AddUserExpensePage}" />
                 </x:Array>
             </ListView.ItemsSource>
             <ListView.ItemTemplate>
@@ -18,7 +28,7 @@
                     <ViewCell>
                         <Grid Padding="5,10">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Image Source="{Binding IconSource}" />

@@ -17,6 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Xaml\AddUserExpensePage.xaml.cs">
+      <DependentUpon>AddUserExpensePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Xaml\MasterPage.xaml.cs">
       <DependentUpon>MasterPage.xaml</DependentUpon>
     </Compile>
@@ -25,6 +28,9 @@
     </Compile>
     <Compile Update="Xaml\SummaryPage.xaml.cs">
       <DependentUpon>SummaryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Xaml\UserExpensesView.xaml.cs">
+      <DependentUpon>UserExpensesView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -41,7 +47,7 @@
     <EmbeddedResource Update="Xaml\UserGoalsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Xaml\UserTransactionsView.xaml">
+    <EmbeddedResource Update="Xaml\UserExpensesView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
