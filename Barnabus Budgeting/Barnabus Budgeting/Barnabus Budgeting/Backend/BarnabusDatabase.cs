@@ -75,7 +75,7 @@ namespace Barnabus_Budgeting.Backend
             {
                 if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(UserGoal).Name))
                 {
-                    await Database.CreateTablesAsync(CreateFlags.None, new [] {typeof(UserGoal), typeof(Transaction) } ).ConfigureAwait(false);
+                    await Database.CreateTablesAsync(CreateFlags.None, new [] {typeof(UserGoal), typeof(IncomeTransaction), typeof(ExpenseTransaction) } ).ConfigureAwait(false);
                     initialized = true;
                 }
             }

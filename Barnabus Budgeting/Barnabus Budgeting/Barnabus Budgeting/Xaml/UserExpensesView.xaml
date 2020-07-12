@@ -13,7 +13,7 @@
                 SelectionMode="Single">
                 <ListView.Header>
                     <StackLayout Padding="10,5,0,5">
-                        <Label Text="Transactions" />
+                        <Label Text="Expenses" />
                     </StackLayout>
                 </ListView.Header>
                 <ListView.ItemTemplate>
@@ -43,7 +43,7 @@
             <Button
                 x:Name="AddNewTransactionButton"
                 Clicked="OnAddNewTransactionClick"
-                Text="Add Transaction" />
+                Text="Add Expense" />
         </StackLayout>
     </ContentView.Content>
 </ContentView>
