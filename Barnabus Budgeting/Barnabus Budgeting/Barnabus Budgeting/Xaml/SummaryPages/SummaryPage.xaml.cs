@@ -17,8 +17,10 @@ namespace Barnabus_Budgeting
             fields.Add(SummaryDataSelector.SummaryType.EXPENSE);
 
             InitializeComponent();
+
+            summariesCarousel.ItemsSource = fields;
         }
 
-        public static List<SummaryDataSelector.SummaryType> fields = new List<SummaryDataSelector.SummaryType>();
+        public List<SummaryDataSelector.SummaryType> fields = new List<SummaryDataSelector.SummaryType>();
     }
 }

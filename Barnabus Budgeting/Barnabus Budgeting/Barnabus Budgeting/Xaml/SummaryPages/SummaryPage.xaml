@@ -16,8 +16,7 @@
         <CarouselView
             x:Name="summariesCarousel"
             IndicatorView="indicatorView"
-            ItemTemplate="{StaticResource templateSelector}"
-            ItemsSource="{x:Static local:SummaryPage.fields}" />
+            ItemTemplate="{StaticResource templateSelector}" />
         <IndicatorView
             x:Name="indicatorView"
             HorizontalOptions="Center"
