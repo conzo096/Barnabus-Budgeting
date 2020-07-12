@@ -32,7 +32,6 @@
                             </ViewCell.ContextActions>
                             <StackLayout Padding="0,5" Orientation="Horizontal">
                                 <StackLayout Spacing="0" VerticalOptions="Center">
-                                    <Label FontSize="Micro" Text="{Binding Type}" />
                                     <Label FontSize="Micro" Text="{Binding Description}" />
                                     <Label FontSize="Micro" Text="{Binding Amount, StringFormat='£{0:N}'}" />
                                 </StackLayout>
