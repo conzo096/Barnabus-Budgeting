@@ -18,9 +18,13 @@
                         IconSource=""
                         TargetType="{x:Type local:AddGoalPage}" />
                     <local:MasterPageItem
-                        Title="Add a expense"
+                        Title="Add expense"
                         IconSource=""
                         TargetType="{x:Type local:AddUserExpensePage}" />
+                    <local:MasterPageItem
+                        Title="Add income"
+                        IconSource=""
+                        TargetType="{x:Type local:AddUserIncomePage}" />
                 </x:Array>
             </ListView.ItemsSource>
             <ListView.ItemTemplate>
