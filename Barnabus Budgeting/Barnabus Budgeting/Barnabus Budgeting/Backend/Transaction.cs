@@ -4,9 +4,10 @@ namespace Barnabus_Budgeting.Backend
 {
     public class ExpenseTransaction : Transaction
     {
-        public ExpenseTransaction()
-        {
-        }
+    }
+
+    public class IncomeTransaction : Transaction
+    {
     }
 
     public class Transaction : DatabaseItem, INotifyPropertyChanged

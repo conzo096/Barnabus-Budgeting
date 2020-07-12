@@ -7,12 +7,13 @@ namespace Barnabus_Budgeting
 {
     public class SummaryCarouselDataTemplateSelector : DataTemplateSelector
     {
-        public enum SummaryType { GOAL = 0, TRANSACTIONS = 1 };
+        public enum SummaryType { GOAL = 0, INCOME = 1, EXPENSE = 2 };
 
         public SummaryCarouselDataTemplateSelector()
         {
             UserGoalsTemplate = new DataTemplate(typeof(UserGoalsView));
-            UserTransactionsTemplate = new DataTemplate(typeof(UserExpensesView));
+            UserIncomeTemplate = new DataTemplate(typeof(UserIncomeView));
+            UserExpenseTemplate = new DataTemplate(typeof(UserExpensesView));
         }
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
@@ -22,8 +23,10 @@ namespace Barnabus_Budgeting
             {
                 case SummaryType.GOAL:
                     return UserGoalsTemplate;
-                case SummaryType.TRANSACTIONS:
-                    return UserTransactionsTemplate;
+                case SummaryType.INCOME:
+                    return UserIncomeTemplate;
+                case SummaryType.EXPENSE:
+                    return UserExpenseTemplate;
             }
 
             // Not ideal but will work for now.
@@ -32,6 +35,7 @@ namespace Barnabus_Budgeting
 
 
         public DataTemplate UserGoalsTemplate { get; set; }
-        public DataTemplate UserTransactionsTemplate { get; set; }
+        public DataTemplate UserIncomeTemplate { get; set; }
+        public DataTemplate UserExpenseTemplate { get; set; }
     }
 }

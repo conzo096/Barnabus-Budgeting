@@ -12,9 +12,9 @@ namespace Barnabus_Budgeting
     {
         public SummaryPage()
         {
-
             fields.Add(SummaryDataSelector.SummaryType.GOAL);
-            fields.Add(SummaryDataSelector.SummaryType.TRANSACTIONS);
+            fields.Add(SummaryDataSelector.SummaryType.INCOME);
+            fields.Add(SummaryDataSelector.SummaryType.EXPENSE);
 
             InitializeComponent();
         }

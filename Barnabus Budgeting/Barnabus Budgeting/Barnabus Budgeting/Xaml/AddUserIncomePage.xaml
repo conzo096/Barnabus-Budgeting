@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Barnabus_Budgeting.AddUserIncomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Add User Income">
+
+    <StackLayout>
+        <StackLayout>
+            <Entry
+                x:Name="descriptionField"
+                Placeholder="Enter description"
+                VerticalOptions="CenterAndExpand" />
+            <Entry
+                x:Name="amountField"
+                Keyboard="Numeric"
+                Placeholder="Enter amount"
+                VerticalOptions="CenterAndExpand" />
+            <Button
+                x:Name="AddTransactionButton"
+                Clicked="OnAddTransactionClick"
+                HorizontalOptions="Center"
+                Text="Add User Income"
+                VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

@@ -17,6 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Xaml\AddUserIncomePage.xaml.cs">
+      <DependentUpon>AddUserIncomePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Xaml\AddUserExpensePage.xaml.cs">
       <DependentUpon>AddUserExpensePage.xaml</DependentUpon>
     </Compile>
@@ -28,6 +31,9 @@
     </Compile>
     <Compile Update="Xaml\SummaryPage.xaml.cs">
       <DependentUpon>SummaryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Xaml\UserIncomeView.xaml.cs">
+      <DependentUpon>UserIncomeView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Xaml\UserExpensesView.xaml.cs">
       <DependentUpon>UserExpensesView.xaml</DependentUpon>

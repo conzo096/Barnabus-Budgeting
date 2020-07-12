@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="Barnabus_Budgeting.UserIncomeView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Barnabus_Budgeting;assembly=Barnabus_Budgeting">
+    <ContentView.Content>
+        <StackLayout>
+            <ListView
+                x:Name="transactionListView"
+                ItemsSource="{x:Static local:UserIncomeView.UserIncome}"
+                RowHeight="50"
+                SelectionMode="Single">
+                <ListView.Header>
+                    <StackLayout Padding="10,5,0,5">
+                        <Label Text="Transactions" />
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem
+                                    Clicked="OnEditTransaction"
+                                    CommandParameter="{Binding .}"
+                                    Text="Edit" />
+                                <MenuItem
+                                    Clicked="OnDeleteTransaction"
+                                    CommandParameter="{Binding .}"
+                                    IsDestructive="True"
+                                    Text="Delete" />
+                            </ViewCell.ContextActions>
+                            <StackLayout Padding="0,5" Orientation="Horizontal">
+                                <StackLayout Spacing="0" VerticalOptions="Center">
+                                    <Label FontSize="Micro" Text="{Binding Type}" />
+                                    <Label FontSize="Micro" Text="{Binding Description}" />
+                                    <Label FontSize="Micro" Text="{Binding Amount, StringFormat='£{0:N}'}" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button
+                x:Name="AddNewTransactionButton"
+                Clicked="OnAddNewTransactionClick"
+                Text="Add Transaction" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
